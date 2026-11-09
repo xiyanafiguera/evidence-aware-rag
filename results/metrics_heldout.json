@@ -1,0 +1,2191 @@
+{
+  "run": {
+    "split": "heldout",
+    "commit": "a3ce18a",
+    "dirty": false,
+    "timestamp": "2026-11-09 17:24 UTC",
+    "questions": 8,
+    "settings": {
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "embedding_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "query_instruction": "Represent this sentence for searching relevant passages: ",
+      "rrf_k": "60",
+      "chunk_candidates": "20",
+      "top_k": "5",
+      "max_hops": "2",
+      "max_expanded": "8",
+      "max_chunks_per_doc": "3"
+    }
+  },
+  "summary": {
+    "bm25": {
+      "questions": 8,
+      "recall_at_3": 0.771,
+      "recall_at_5": 0.771,
+      "mrr": 0.917,
+      "complete_ranking_at_5": [
+        4,
+        8
+      ],
+      "complete_package": [
+        4,
+        8
+      ],
+      "avg_package_size": 5,
+      "version_correct": [
+        0,
+        0
+      ],
+      "flags_correct": [
+        7,
+        8
+      ],
+      "ambiguity_detected_on_ambiguous": [
+        0,
+        1
+      ],
+      "unanswerable": {
+        "insufficient": 0,
+        "unknown": 1,
+        "sufficient": 0,
+        "total": 1
+      },
+      "false_insufficient_on_answerable": 0
+    },
+    "dense": {
+      "questions": 8,
+      "recall_at_3": 0.667,
+      "recall_at_5": 0.771,
+      "mrr": 0.844,
+      "complete_ranking_at_5": [
+        4,
+        8
+      ],
+      "complete_package": [
+        4,
+        8
+      ],
+      "avg_package_size": 5,
+      "version_correct": [
+        0,
+        0
+      ],
+      "flags_correct": [
+        7,
+        8
+      ],
+      "ambiguity_detected_on_ambiguous": [
+        0,
+        1
+      ],
+      "unanswerable": {
+        "insufficient": 0,
+        "unknown": 1,
+        "sufficient": 0,
+        "total": 1
+      },
+      "false_insufficient_on_answerable": 0
+    },
+    "hybrid": {
+      "questions": 8,
+      "recall_at_3": 0.708,
+      "recall_at_5": 0.833,
+      "mrr": 0.917,
+      "complete_ranking_at_5": [
+        5,
+        8
+      ],
+      "complete_package": [
+        5,
+        8
+      ],
+      "avg_package_size": 5,
+      "version_correct": [
+        0,
+        0
+      ],
+      "flags_correct": [
+        7,
+        8
+      ],
+      "ambiguity_detected_on_ambiguous": [
+        0,
+        1
+      ],
+      "unanswerable": {
+        "insufficient": 0,
+        "unknown": 1,
+        "sufficient": 0,
+        "total": 1
+      },
+      "false_insufficient_on_answerable": 0
+    },
+    "full": {
+      "questions": 8,
+      "recall_at_3": 0.667,
+      "recall_at_5": 0.833,
+      "mrr": 0.781,
+      "complete_ranking_at_5": [
+        5,
+        8
+      ],
+      "complete_package": [
+        8,
+        8
+      ],
+      "avg_package_size": 9.62,
+      "version_correct": [
+        3,
+        6
+      ],
+      "flags_correct": [
+        6,
+        8
+      ],
+      "ambiguity_detected_on_ambiguous": [
+        1,
+        1
+      ],
+      "unanswerable": {
+        "insufficient": 0,
+        "unknown": 0,
+        "sufficient": 1,
+        "total": 1
+      },
+      "false_insufficient_on_answerable": 0
+    }
+  },
+  "by_category": {
+    "bm25": {
+      "lexical": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop": {
+        "questions": 1,
+        "recall_at_3": 0.667,
+        "recall_at_5": 0.667,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop_temporal": {
+        "questions": 2,
+        "recall_at_3": 0.833,
+        "recall_at_5": 0.833,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          2
+        ],
+        "complete_package": [
+          1,
+          2
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          2,
+          2
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "semantic": {
+        "questions": 1,
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal_ambiguous": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          0,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          1
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "unanswerable": {
+        "questions": 1,
+        "recall_at_3": 0.333,
+        "recall_at_5": 0.333,
+        "mrr": 0.333,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 1,
+          "sufficient": 0,
+          "total": 1
+        },
+        "false_insufficient_on_answerable": 0
+      }
+    },
+    "dense": {
+      "lexical": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop": {
+        "questions": 1,
+        "recall_at_3": 0.667,
+        "recall_at_5": 0.667,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop_temporal": {
+        "questions": 2,
+        "recall_at_3": 0.583,
+        "recall_at_5": 0.583,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          2
+        ],
+        "complete_package": [
+          0,
+          2
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          2,
+          2
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "semantic": {
+        "questions": 1,
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal_ambiguous": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          0,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          1
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "unanswerable": {
+        "questions": 1,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.333,
+        "mrr": 0.25,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 1,
+          "sufficient": 0,
+          "total": 1
+        },
+        "false_insufficient_on_answerable": 0
+      }
+    },
+    "hybrid": {
+      "lexical": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop": {
+        "questions": 1,
+        "recall_at_3": 0.667,
+        "recall_at_5": 0.667,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop_temporal": {
+        "questions": 2,
+        "recall_at_3": 0.583,
+        "recall_at_5": 0.833,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          2
+        ],
+        "complete_package": [
+          1,
+          2
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          2,
+          2
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "semantic": {
+        "questions": 1,
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal_ambiguous": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          0,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          1
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "unanswerable": {
+        "questions": 1,
+        "recall_at_3": 0.333,
+        "recall_at_5": 0.333,
+        "mrr": 0.333,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          0,
+          1
+        ],
+        "avg_package_size": 5,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 1,
+          "sufficient": 0,
+          "total": 1
+        },
+        "false_insufficient_on_answerable": 0
+      }
+    },
+    "full": {
+      "lexical": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 13,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop": {
+        "questions": 1,
+        "recall_at_3": 0.667,
+        "recall_at_5": 0.667,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 14,
+        "version_correct": [
+          0,
+          1
+        ],
+        "flags_correct": [
+          0,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "multi_hop_temporal": {
+        "questions": 2,
+        "recall_at_3": 0.583,
+        "recall_at_5": 0.833,
+        "mrr": 0.5,
+        "complete_ranking_at_5": [
+          1,
+          2
+        ],
+        "complete_package": [
+          2,
+          2
+        ],
+        "avg_package_size": 7,
+        "version_correct": [
+          2,
+          2
+        ],
+        "flags_correct": [
+          2,
+          2
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "semantic": {
+        "questions": 1,
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 7,
+        "version_correct": [
+          0,
+          1
+        ],
+        "flags_correct": [
+          0,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 8,
+        "version_correct": [
+          1,
+          1
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "temporal_ambiguous": {
+        "questions": 1,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "complete_ranking_at_5": [
+          1,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 11,
+        "version_correct": [
+          0,
+          0
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          1,
+          1
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 0,
+          "total": 0
+        },
+        "false_insufficient_on_answerable": 0
+      },
+      "unanswerable": {
+        "questions": 1,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.333,
+        "mrr": 0.25,
+        "complete_ranking_at_5": [
+          0,
+          1
+        ],
+        "complete_package": [
+          1,
+          1
+        ],
+        "avg_package_size": 10,
+        "version_correct": [
+          0,
+          1
+        ],
+        "flags_correct": [
+          1,
+          1
+        ],
+        "ambiguity_detected_on_ambiguous": [
+          0,
+          0
+        ],
+        "unanswerable": {
+          "insufficient": 0,
+          "unknown": 0,
+          "sufficient": 1,
+          "total": 1
+        },
+        "false_insufficient_on_answerable": 0
+      }
+    }
+  },
+  "per_question": {
+    "bm25": {
+      "H01": {
+        "id": "H01",
+        "category": "lexical",
+        "answerable": true,
+        "ranking": [
+          "INC-011",
+          "MTG-005",
+          "MTG-001",
+          "MTG-002",
+          "DRF-001"
+        ],
+        "package": [
+          "INC-011",
+          "MTG-005",
+          "MTG-001",
+          "MTG-002",
+          "DRF-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H02": {
+        "id": "H02",
+        "category": "semantic",
+        "answerable": true,
+        "ranking": [
+          "MKT-001",
+          "MTG-001",
+          "DRF-001",
+          "MTG-006",
+          "SLA-002"
+        ],
+        "package": [
+          "MKT-001",
+          "MTG-001",
+          "DRF-001",
+          "MTG-006",
+          "SLA-002"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H03": {
+        "id": "H03",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "SLA-003",
+          "MTG-002",
+          "INC-016",
+          "SLA-001",
+          "CUS-001"
+        ],
+        "package": [
+          "SLA-003",
+          "MTG-002",
+          "INC-016",
+          "SLA-001",
+          "CUS-001"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H04": {
+        "id": "H04",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "CTR-004",
+          "MTG-006",
+          "SEC-001",
+          "CUS-004",
+          "MTG-003"
+        ],
+        "package": [
+          "CTR-004",
+          "MTG-006",
+          "SEC-001",
+          "CUS-004",
+          "MTG-003"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H05": {
+        "id": "H05",
+        "category": "temporal",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "SEC-001",
+          "SLA-003",
+          "DRF-001"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "SEC-001",
+          "SLA-003",
+          "DRF-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H06": {
+        "id": "H06",
+        "category": "temporal_ambiguous",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "MTG-003",
+          "MTG-001",
+          "CUS-001"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "MTG-003",
+          "MTG-001",
+          "CUS-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": false,
+        "expected_ambiguity": true,
+        "detected_ambiguity": false,
+        "expected_clarification": true,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H07": {
+        "id": "H07",
+        "category": "unanswerable",
+        "answerable": false,
+        "ranking": [
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "CUS-001",
+          "DRF-001"
+        ],
+        "package": [
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "CUS-001",
+          "DRF-001"
+        ],
+        "recall_at_3": 0.3333333333333333,
+        "recall_at_5": 0.3333333333333333,
+        "rr": 0.3333333333333333,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H08": {
+        "id": "H08",
+        "category": "multi_hop",
+        "answerable": true,
+        "ranking": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "REF-001",
+          "MKT-001"
+        ],
+        "package": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "REF-001",
+          "MKT-001"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      }
+    },
+    "dense": {
+      "H01": {
+        "id": "H01",
+        "category": "lexical",
+        "answerable": true,
+        "ranking": [
+          "INC-011",
+          "INC-016",
+          "INC-012",
+          "INC-014",
+          "INC-017"
+        ],
+        "package": [
+          "INC-011",
+          "INC-016",
+          "INC-012",
+          "INC-014",
+          "INC-017"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H02": {
+        "id": "H02",
+        "category": "semantic",
+        "answerable": true,
+        "ranking": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-005",
+          "SLA-003",
+          "MTG-001"
+        ],
+        "package": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-005",
+          "SLA-003",
+          "MTG-001"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H03": {
+        "id": "H03",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "SLA-003",
+          "INC-016",
+          "MTG-002",
+          "INC-015",
+          "CTR-002"
+        ],
+        "package": [
+          "SLA-003",
+          "INC-016",
+          "MTG-002",
+          "INC-015",
+          "CTR-002"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H04": {
+        "id": "H04",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "CTR-004",
+          "MTG-006",
+          "CUS-004",
+          "INC-013",
+          "MTG-005"
+        ],
+        "package": [
+          "CTR-004",
+          "MTG-006",
+          "CUS-004",
+          "INC-013",
+          "MTG-005"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H05": {
+        "id": "H05",
+        "category": "temporal",
+        "answerable": true,
+        "ranking": [
+          "REF-001",
+          "REF-002",
+          "MTG-005",
+          "CTR-004",
+          "CTR-003"
+        ],
+        "package": [
+          "REF-001",
+          "REF-002",
+          "MTG-005",
+          "CTR-004",
+          "CTR-003"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 0.5,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H06": {
+        "id": "H06",
+        "category": "temporal_ambiguous",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "MTG-005",
+          "SLA-003",
+          "SUP-001"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "MTG-005",
+          "SLA-003",
+          "SUP-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": false,
+        "expected_ambiguity": true,
+        "detected_ambiguity": false,
+        "expected_clarification": true,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H07": {
+        "id": "H07",
+        "category": "unanswerable",
+        "answerable": false,
+        "ranking": [
+          "MTG-002",
+          "INC-016",
+          "MTG-005",
+          "CTR-001",
+          "INC-015"
+        ],
+        "package": [
+          "MTG-002",
+          "INC-016",
+          "MTG-005",
+          "CTR-001",
+          "INC-015"
+        ],
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.3333333333333333,
+        "rr": 0.25,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H08": {
+        "id": "H08",
+        "category": "multi_hop",
+        "answerable": true,
+        "ranking": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "REF-001",
+          "MTG-006"
+        ],
+        "package": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "REF-001",
+          "MTG-006"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      }
+    },
+    "hybrid": {
+      "H01": {
+        "id": "H01",
+        "category": "lexical",
+        "answerable": true,
+        "ranking": [
+          "INC-011",
+          "INC-017",
+          "INC-016",
+          "INC-012",
+          "INC-018"
+        ],
+        "package": [
+          "INC-011",
+          "INC-017",
+          "INC-016",
+          "INC-012",
+          "INC-018"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H02": {
+        "id": "H02",
+        "category": "semantic",
+        "answerable": true,
+        "ranking": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-001",
+          "SLA-002",
+          "SLA-003"
+        ],
+        "package": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-001",
+          "SLA-002",
+          "SLA-003"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H03": {
+        "id": "H03",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "SLA-003",
+          "INC-016",
+          "MTG-002",
+          "SLA-001",
+          "CUS-001"
+        ],
+        "package": [
+          "SLA-003",
+          "INC-016",
+          "MTG-002",
+          "SLA-001",
+          "CUS-001"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H04": {
+        "id": "H04",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "CTR-004",
+          "MTG-006",
+          "CUS-004",
+          "SEC-001",
+          "INC-013"
+        ],
+        "package": [
+          "CTR-004",
+          "MTG-006",
+          "CUS-004",
+          "SEC-001",
+          "INC-013"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H05": {
+        "id": "H05",
+        "category": "temporal",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "SLA-003",
+          "MTG-005",
+          "SEC-001"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "SLA-003",
+          "MTG-005",
+          "SEC-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H06": {
+        "id": "H06",
+        "category": "temporal_ambiguous",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "CTR-003",
+          "CTR-004",
+          "MTG-003"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "CTR-003",
+          "CTR-004",
+          "MTG-003"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": false,
+        "expected_ambiguity": true,
+        "detected_ambiguity": false,
+        "expected_clarification": true,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H07": {
+        "id": "H07",
+        "category": "unanswerable",
+        "answerable": false,
+        "ranking": [
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "MTG-005",
+          "CUS-001"
+        ],
+        "package": [
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "MTG-005",
+          "CUS-001"
+        ],
+        "recall_at_3": 0.3333333333333333,
+        "recall_at_5": 0.3333333333333333,
+        "rr": 0.3333333333333333,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H08": {
+        "id": "H08",
+        "category": "multi_hop",
+        "answerable": true,
+        "ranking": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "MTG-005",
+          "MTG-003"
+        ],
+        "package": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "MTG-005",
+          "MTG-003"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": false,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      }
+    },
+    "full": {
+      "H01": {
+        "id": "H01",
+        "category": "lexical",
+        "answerable": true,
+        "ranking": [
+          "INC-011",
+          "INC-017",
+          "INC-016",
+          "INC-012",
+          "INC-018"
+        ],
+        "package": [
+          "INC-011",
+          "INC-017",
+          "INC-016",
+          "INC-012",
+          "INC-018",
+          "CTR-002",
+          "CUS-002",
+          "CUS-006",
+          "CTR-001",
+          "CUS-001",
+          "CTR-005",
+          "CUS-005",
+          "CTR-003"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H02": {
+        "id": "H02",
+        "category": "semantic",
+        "answerable": true,
+        "ranking": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-001",
+          "SLA-002",
+          "SLA-003"
+        ],
+        "package": [
+          "MKT-001",
+          "SLA-001",
+          "MTG-001",
+          "SLA-002",
+          "SLA-003",
+          "CTR-002",
+          "CUS-002"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": false,
+        "flags_ok": false,
+        "expected_ambiguity": false,
+        "detected_ambiguity": true,
+        "expected_clarification": false,
+        "detected_clarification": true,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H03": {
+        "id": "H03",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "CUS-001",
+          "SLA-003",
+          "INC-016",
+          "MTG-002",
+          "SLA-001"
+        ],
+        "package": [
+          "SLA-003",
+          "CUS-001",
+          "INC-016",
+          "MTG-002",
+          "SLA-001",
+          "CTR-001",
+          "INC-014",
+          "SLA-002",
+          "ENG-001"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 0.5,
+        "complete_ranking_at_5": false,
+        "complete_package": true,
+        "version_ok": true,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "sufficient",
+        "missing": []
+      },
+      "H04": {
+        "id": "H04",
+        "category": "multi_hop_temporal",
+        "answerable": true,
+        "ranking": [
+          "CUS-004",
+          "CTR-004",
+          "MTG-006",
+          "SEC-001",
+          "INC-013"
+        ],
+        "package": [
+          "CTR-004",
+          "CUS-004",
+          "MTG-006",
+          "SEC-001",
+          "INC-013"
+        ],
+        "recall_at_3": 0.5,
+        "recall_at_5": 1.0,
+        "rr": 0.5,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": true,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H05": {
+        "id": "H05",
+        "category": "temporal",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "SLA-003",
+          "MTG-005",
+          "SEC-001"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "SLA-003",
+          "MTG-005",
+          "SEC-001",
+          "SLA-002",
+          "CUS-006",
+          "SLA-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": true,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H06": {
+        "id": "H06",
+        "category": "temporal_ambiguous",
+        "answerable": true,
+        "ranking": [
+          "REF-002",
+          "REF-001",
+          "CTR-003",
+          "CTR-004",
+          "MTG-003"
+        ],
+        "package": [
+          "REF-002",
+          "REF-001",
+          "CTR-003",
+          "CTR-004",
+          "MTG-003",
+          "CUS-003",
+          "CUS-004",
+          "SEC-001",
+          "INC-014",
+          "CTR-001",
+          "CUS-001"
+        ],
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "rr": 1.0,
+        "complete_ranking_at_5": true,
+        "complete_package": true,
+        "version_ok": null,
+        "flags_ok": true,
+        "expected_ambiguity": true,
+        "detected_ambiguity": true,
+        "expected_clarification": true,
+        "detected_clarification": true,
+        "sufficiency": "unknown",
+        "missing": []
+      },
+      "H07": {
+        "id": "H07",
+        "category": "unanswerable",
+        "answerable": false,
+        "ranking": [
+          "CUS-001",
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "MTG-005"
+        ],
+        "package": [
+          "SLA-003",
+          "CUS-001",
+          "MTG-002",
+          "INC-016",
+          "CTR-001",
+          "MTG-005",
+          "INC-014",
+          "SLA-002",
+          "CUS-006",
+          "ENG-001"
+        ],
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.3333333333333333,
+        "rr": 0.25,
+        "complete_ranking_at_5": false,
+        "complete_package": true,
+        "version_ok": false,
+        "flags_ok": true,
+        "expected_ambiguity": false,
+        "detected_ambiguity": false,
+        "expected_clarification": false,
+        "detected_clarification": false,
+        "sufficiency": "sufficient",
+        "missing": []
+      },
+      "H08": {
+        "id": "H08",
+        "category": "multi_hop",
+        "answerable": true,
+        "ranking": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "MTG-005",
+          "MTG-003"
+        ],
+        "package": [
+          "DRF-001",
+          "MTG-004",
+          "REF-002",
+          "MTG-005",
+          "MTG-003",
+          "SLA-003",
+          "REF-001",
+          "CUS-006",
+          "CTR-003",
+          "CUS-003",
+          "INC-014",
+          "SLA-002",
+          "CTR-001",
+          "SLA-001"
+        ],
+        "recall_at_3": 0.6666666666666666,
+        "recall_at_5": 0.6666666666666666,
+        "rr": 1.0,
+        "complete_ranking_at_5": false,
+        "complete_package": true,
+        "version_ok": false,
+        "flags_ok": false,
+        "expected_ambiguity": false,
+        "detected_ambiguity": true,
+        "expected_clarification": false,
+        "detected_clarification": true,
+        "sufficiency": "unknown",
+        "missing": []
+      }
+    }
+  }
+}
