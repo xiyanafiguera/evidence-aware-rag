@@ -19,11 +19,18 @@ from typing import Literal
 from evidence_aware_rag.config import Settings
 from evidence_aware_rag.corpus import Corpus
 from evidence_aware_rag.index_store import IndexArtifacts, ensure_index
-from evidence_aware_rag.models import ChunkRef, EvidenceItem, EvidencePackage, ScoredChunk, Sufficiency
+from evidence_aware_rag.models import (
+    ChunkRef, DateMention, EvidenceItem, EvidencePackage, ScoredChunk, Sufficiency, TemporalAssessment,
+)
+from evidence_aware_rag.query_analysis import QueryAnalysis, QueryAnalyzer, mentions
+from evidence_aware_rag.relations import RelationExpander
 from evidence_aware_rag.retrievers.base import Retriever, rank_documents
 from evidence_aware_rag.retrievers.bm25 import BM25Retriever
 from evidence_aware_rag.retrievers.dense import DenseRetriever, Embedder
+from evidence_aware_rag.retrievers.exact import ExactMatchRetriever
 from evidence_aware_rag.retrievers.hybrid import HybridRetriever
+from evidence_aware_rag.sufficiency import SufficiencyChecker
+from evidence_aware_rag.temporal import TemporalResolver
 
 Mode = Literal["bm25", "dense", "hybrid", "full"]
 MODES: tuple[Mode, ...] = ("bm25", "dense", "hybrid", "full")
@@ -48,26 +55,103 @@ class KnowledgeBase:
 
 
 class EvidencePipeline:
-    def __init__(self, kb: KnowledgeBase, retriever: Retriever, mode: str):
+    """Retrieval, then (optionally) relation expansion, temporal resolution and sufficiency."""
+
+    def __init__(self, kb: KnowledgeBase, retriever: Retriever, mode: str, *,
+                 analyzer: QueryAnalyzer | None = None, expander: RelationExpander | None = None,
+                 resolver: TemporalResolver | None = None, checker: SufficiencyChecker | None = None):
         self.kb = kb
         self.retriever = retriever
         self.mode = mode
+        self.analyzer = analyzer
+        self.expander = expander
+        self.resolver = resolver
+        self.checker = checker
 
     def run(self, query: str, as_of: date | None = None) -> EvidencePackage:
-        settings = self.kb.settings
+        settings, corpus = self.kb.settings, self.kb.corpus
         hits = self.retriever.search(query, settings.chunk_candidates)
         ranking = rank_documents(hits)[: settings.top_k]
-        evidence = [self._item(doc_id, hits, [f"retrieved: {self.retriever.name} rank {i}"])
-                    for i, doc_id in enumerate(ranking, start=1)]
+        why: dict[str, list[str]] = {d: [f"retrieved: {self.retriever.name} rank {i}"]
+                                     for i, d in enumerate(ranking, start=1)}
+
+        analysis = self.analyzer.analyze(query) if self.analyzer else None
+        intent_rules = corpus.rules.intents.get(analysis.intent) if analysis and analysis.intent else None
+
+        if self.expander:
+            priority = intent_rules.expansion_priority if intent_rules else None
+            for expansion in self.expander.expand(ranking, priority):
+                why.setdefault(expansion.document_id, []).append(expansion.reason)
+
+        temporal: list[TemporalAssessment] = []
+        if self.resolver and analysis:
+            temporal = self._resolve_versions(analysis, ranking, list(why), as_of)
+            for assessment in temporal:
+                for doc_id in assessment.applicable:
+                    why.setdefault(doc_id, []).append(f"governing document ({assessment.governed_by}): "
+                                                      f"{assessment.justification}")
+                for candidate in assessment.candidate_interpretations:
+                    why.setdefault(candidate.document_id, []).append("candidate version (temporally ambiguous)")
+
+        sufficiency = (self.checker.check(analysis, list(why), temporal) if self.checker and analysis
+                       else Sufficiency(status="unknown", reason=f"mode '{self.mode}' has no sufficiency rules"))
+
+        evidence = [self._item(doc_id, hits, reasons) for doc_id, reasons in why.items()]
+        self._mark_versions(evidence, temporal)
+        evidence.sort(key=lambda item: item.version_status != "applicable")  # stable: governing docs first
         return EvidencePackage(
             query=query,
             as_of_date=as_of,
             method=self.mode,
-            intent=None,
+            intent=analysis.intent if analysis else None,
             evidence=evidence,
-            sufficiency=Sufficiency(status="unknown", reason=f"mode '{self.mode}' has no sufficiency rules"),
+            temporal=temporal,
+            sufficiency=sufficiency,
             retrieved_ranking=ranking,
         )
+
+    def _resolve_versions(self, analysis: QueryAnalysis, ranking: list[str], evidence_ids: list[str],
+                          as_of: date | None) -> list[TemporalAssessment]:
+        """Assess the intent's policy family, plus families the query asks about explicitly.
+
+        A family counts as "asked about" when one of its documents is retrieved *and* the query
+        mentions one of its clauses; this keeps non-temporal questions free of spurious flags.
+        """
+        corpus = self.kb.corpus
+        families: list[str] = []
+        if analysis.intent and corpus.rules.intents[analysis.intent].policy_family:
+            families.append(corpus.rules.intents[analysis.intent].policy_family)
+        for doc_id in ranking:
+            family = corpus.meta(doc_id).policy_family
+            if family and family not in families:
+                clauses = corpus.rules.policy_families[family].clauses.values()
+                if any(mentions(analysis.query, kw) for keywords in clauses for kw in keywords):
+                    families.append(family)
+
+        customer = analysis.customer_ids[0] if analysis.customer_ids else None
+        dates: list[DateMention] = []
+        if customer:
+            event = self.resolver.find_event(analysis.doc_ids + evidence_ids, customer)
+            if event:
+                dates.append(event)
+        dates += analysis.dates
+        if as_of:
+            dates.append(DateMention(day=as_of, source="agent_as_of", detail="as_of_date"))
+        return [self.resolver.resolve(f, dates, customer, analysis.query) for f in families]
+
+    def _mark_versions(self, evidence: list[EvidenceItem], temporal: list[TemporalAssessment]) -> None:
+        corpus = self.kb.corpus
+        for item in evidence:
+            meta = corpus.meta(item.document_id)
+            if meta.status == "draft":
+                item.version_status = "draft"
+            for assessment in temporal:
+                if item.document_id in assessment.applicable:
+                    item.version_status = "applicable"
+                elif item.document_id in {c.document_id for c in assessment.candidate_interpretations}:
+                    item.version_status = "candidate"
+                elif meta.policy_family == assessment.policy_family and meta.status != "draft":
+                    item.version_status = "not_applicable"
 
     def _item(self, doc_id: str, hits: list[ScoredChunk], why: list[str]) -> EvidenceItem:
         """Evidence entry with up to `max_chunks_per_doc` retrieved chunks (or the first chunk if none)."""
@@ -92,4 +176,14 @@ def build_pipeline(mode: Mode, kb: KnowledgeBase) -> EvidencePipeline:
         return EvidencePipeline(kb, dense, mode)
     if mode == "hybrid":
         return EvidencePipeline(kb, HybridRetriever([bm25, dense], s.rrf_k, s.chunk_candidates), mode)
-    raise NotImplementedError(f"mode {mode!r} is not available yet")
+    if mode == "full":
+        analyzer = QueryAnalyzer(kb.corpus)
+        exact = ExactMatchRetriever(kb.index.chunks, analyzer)
+        return EvidencePipeline(
+            kb, HybridRetriever([exact, bm25, dense], s.rrf_k, s.chunk_candidates), mode,
+            analyzer=analyzer,
+            expander=RelationExpander(kb.corpus, s.max_hops, s.max_expanded),
+            resolver=TemporalResolver(kb.corpus),
+            checker=SufficiencyChecker(kb.corpus),
+        )
+    raise ValueError(f"unknown mode {mode!r}; expected one of {MODES}")
