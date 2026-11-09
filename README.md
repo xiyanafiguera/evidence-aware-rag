@@ -11,6 +11,10 @@ All data is synthetic: a fictional B2B SaaS company, *Northstar Cloud*, with 35 
 (versioned policies, contracts, tickets, CRM records, meeting notes) built to contain the traps real
 enterprise knowledge has.
 
+> **Status:** retrieval, evidence packaging, MCP tools and evaluation are implemented and tested.
+> There is **no LLM answer generation and no hosted demo yet**; both are listed under
+> [Future work](#future-work).
+
 ---
 
 ## What it does
@@ -137,6 +141,9 @@ Two kinds of measures, because `full` returns more documents than the other mode
 | **held-out** · dense | 4/8 | 0.84 | 4/8 (5.0) | — | 7/8 | 0 / 1 / 0 |
 | **held-out** · hybrid | 5/8 | 0.92 | 5/8 (5.0) | — | 7/8 | 0 / 1 / 0 |
 | **held-out** · full | 5/8 | 0.78 | **8/8** (9.6) | **3/6** | 6/8 | 0 / 0 / **1** ✗ |
+
+*Complete evidence retrieval does not imply correct policy interpretation or answerability; these are
+evaluated separately.*
 
 Full tables (per category, per question): [`results/RESULTS_dev.md`](results/RESULTS_dev.md),
 [`results/RESULTS_heldout.md`](results/RESULTS_heldout.md).
