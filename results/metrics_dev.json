@@ -1,9 +1,9 @@
 {
   "run": {
     "split": "dev",
-    "commit": "44de43c",
-    "dirty": true,
-    "timestamp": "2026-11-09 17:19 UTC",
+    "commit": "a8323aa",
+    "dirty": false,
+    "timestamp": "2026-11-09 17:24 UTC",
     "questions": 17,
     "settings": {
       "embedding_model": "BAAI/bge-small-en-v1.5",
