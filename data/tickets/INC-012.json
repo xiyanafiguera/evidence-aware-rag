@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-012",
+  "type": "incident",
+  "customer_id": "CUS-005",
+  "customer_name": "Delta Freight",
+  "severity": "Sev-1",
+  "occurred_at": "2026-06-17",
+  "resolved_at": "2026-06-18",
+  "title": "Scheduled jobs not running",
+  "description": "The job scheduler crashed after a configuration change and Delta Freight's scheduled shipments sync did not run for about 14 hours. Customer asked whether they are entitled to compensation.",
+  "root_cause": "Invalid cron expression accepted by the scheduler config loader caused a crash loop.",
+  "monthly_availability_pct": 98.90,
+  "availability_month": "2026-06",
+  "status": "resolved"
+}

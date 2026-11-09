@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-015",
+  "type": "incident",
+  "customer_id": "CUS-002",
+  "customer_name": "Acme Logistics",
+  "severity": "Sev-2",
+  "occurred_at": "2026-09-03",
+  "resolved_at": "2026-09-04",
+  "title": "Webhook delivery delays",
+  "description": "Outgoing webhooks to Acme Logistics were delayed by up to 90 minutes. Customer requested a service credit.",
+  "root_cause": "Webhook dispatcher queue backlog after a worker autoscaling misconfiguration.",
+  "monthly_availability_pct": 99.70,
+  "availability_month": "2026-09",
+  "status": "resolved"
+}

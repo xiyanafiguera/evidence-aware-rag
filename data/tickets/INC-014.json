@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-014",
+  "type": "incident",
+  "customer_id": "CUS-001",
+  "customer_name": "Acme Corp",
+  "severity": "Sev-1",
+  "occurred_at": "2026-08-21",
+  "resolved_at": "2026-08-21",
+  "title": "Elevated 5xx API error rates",
+  "description": "Between 09:10 and 13:40 UTC a large share of API calls from Acme Corp returned HTTP 503 errors. The dashboard loaded intermittently.",
+  "root_cause": "Connection pool saturation on the primary Postgres cluster after a traffic increase; new requests could not obtain a database connection.",
+  "monthly_availability_pct": 99.71,
+  "availability_month": "2026-08",
+  "status": "resolved"
+}

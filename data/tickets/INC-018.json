@@ -1,0 +1,13 @@
+{
+  "ticket_id": "INC-018",
+  "type": "service_request",
+  "customer_id": "CUS-003",
+  "customer_name": "Beta Ltd",
+  "severity": "Sev-3",
+  "occurred_at": "2026-09-15",
+  "resolved_at": "2026-09-16",
+  "title": "Status of the Salesforce connector",
+  "description": "Beta Ltd asks why the Salesforce connector promised for mid-September has not been delivered and when it will be available.",
+  "resolution": "Lena Novak replied that the connector has been rescheduled to Q1 2027, following the product planning decision of September 2, 2026, and offered a call to discuss the new plan.",
+  "status": "resolved"
+}

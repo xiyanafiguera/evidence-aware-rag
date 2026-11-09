@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-006",
+  "name": "Everfield Retail",
+  "industry": "Retail",
+  "plan": "Business (proposed)",
+  "monthly_fee_usd": 3000,
+  "contract_id": null,
+  "account_manager": "Lena Novak",
+  "status": "pilot",
+  "customer_since": "2026-09-15",
+  "notes": "Running on a pilot account while the subscription agreement is in legal review. Quoted fee USD 3,000/month, not yet signed."
+}

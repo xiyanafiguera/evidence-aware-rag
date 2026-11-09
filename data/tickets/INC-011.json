@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-011",
+  "type": "incident",
+  "customer_id": "CUS-002",
+  "customer_name": "Acme Logistics",
+  "severity": "Sev-1",
+  "occurred_at": "2026-04-18",
+  "resolved_at": "2026-04-18",
+  "title": "Regional network outage in eu-west",
+  "description": "A failure in the upstream network provider took the eu-west region offline. Acme Logistics pipelines in that region stopped for most of the afternoon.",
+  "root_cause": "Upstream provider fiber cut; failover to the secondary region was not configured for this account.",
+  "monthly_availability_pct": 99.20,
+  "availability_month": "2026-04",
+  "status": "resolved"
+}

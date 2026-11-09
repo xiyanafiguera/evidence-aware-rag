@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-016",
+  "type": "incident",
+  "customer_id": "CUS-001",
+  "customer_name": "Acme Corp",
+  "severity": "Sev-1",
+  "occurred_at": "2026-10-12",
+  "resolved_at": "2026-10-12",
+  "title": "Full API outage after failed deployment",
+  "description": "A faulty release made the Northstar Platform API unavailable for about four hours. Acme Corp's account manager asked what compensation applies and how to claim it.",
+  "root_cause": "Database migration in release 4.12 locked a core table; rollback took longer than expected.",
+  "monthly_availability_pct": 99.42,
+  "availability_month": "2026-10",
+  "status": "resolved"
+}

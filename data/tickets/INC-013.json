@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-013",
+  "type": "incident",
+  "customer_id": "CUS-004",
+  "customer_name": "Corvid Health",
+  "severity": "Sev-2",
+  "occurred_at": "2026-07-22",
+  "resolved_at": "2026-07-23",
+  "title": "Storage latency degradation",
+  "description": "Write latency on the EU storage tier increased tenfold for several hours. Corvid Health pipelines slowed down and some requests timed out.",
+  "root_cause": "A noisy-neighbour workload saturated IOPS on a shared storage node.",
+  "monthly_availability_pct": 99.60,
+  "availability_month": "2026-07",
+  "status": "resolved"
+}

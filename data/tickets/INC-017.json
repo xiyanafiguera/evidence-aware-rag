@@ -1,0 +1,15 @@
+{
+  "ticket_id": "INC-017",
+  "type": "incident",
+  "customer_id": "CUS-006",
+  "customer_name": "Everfield Retail",
+  "severity": "Sev-2",
+  "occurred_at": "2026-10-28",
+  "resolved_at": "2026-10-28",
+  "title": "Dashboard unavailable",
+  "description": "The web dashboard returned errors for Everfield Retail users for around 80 minutes; the API kept working. Everfield asked whether they will receive a credit.",
+  "root_cause": "Expired TLS certificate on the dashboard load balancer.",
+  "monthly_availability_pct": 99.80,
+  "availability_month": "2026-10",
+  "status": "resolved"
+}

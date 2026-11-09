@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-003",
+  "name": "Beta Ltd",
+  "industry": "Professional services",
+  "plan": "Business",
+  "monthly_fee_usd": 4000,
+  "contract_id": "CTR-003",
+  "account_manager": "Lena Novak",
+  "status": "active",
+  "customer_since": "2026-05-01",
+  "notes": "Integration status: Salesforce connector — rescheduled. Customer is mildly frustrated about the change of date."
+}

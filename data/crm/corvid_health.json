@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-004",
+  "name": "Corvid Health",
+  "industry": "Healthcare",
+  "plan": "Enterprise",
+  "monthly_fee_usd": 18000,
+  "contract_id": "CTR-004",
+  "account_manager": "Priya Raman",
+  "status": "active",
+  "customer_since": "2026-02-01",
+  "notes": "Regulated customer. Custom contract terms (see contract). EU-only data processing."
+}

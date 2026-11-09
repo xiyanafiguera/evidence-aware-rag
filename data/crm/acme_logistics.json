@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-002",
+  "name": "Acme Logistics",
+  "industry": "Logistics",
+  "plan": "Business",
+  "monthly_fee_usd": 3500,
+  "contract_id": "CTR-002",
+  "account_manager": "Tomás Ortega",
+  "status": "active",
+  "customer_since": "2025-12-15",
+  "notes": "Not related to Acme Corp. Early customer with grandfathered contract terms. Renewal due December 2026."
+}

@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-005",
+  "name": "Delta Freight",
+  "industry": "Logistics",
+  "plan": "Starter",
+  "monthly_fee_usd": 400,
+  "contract_id": "CTR-005",
+  "account_manager": "Tomás Ortega",
+  "status": "active",
+  "customer_since": "2026-06-01",
+  "notes": "Small team, self-serve. Possible upsell to Business."
+}

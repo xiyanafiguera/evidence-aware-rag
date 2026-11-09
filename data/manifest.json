@@ -1,0 +1,252 @@
+{
+  "dataset": "Northstar Cloud (synthetic)",
+  "version": 1,
+  "documents": [
+    {
+      "document_id": "SLA-001", "path": "policies/service_sla_v1.md", "type": "policy",
+      "title": "Service Level Agreement v1", "date": "2026-01-01",
+      "policy_family": "service_sla", "version": 1, "status": "superseded",
+      "valid_from": "2026-01-01", "valid_to": "2026-06-30", "superseded_by": "SLA-002",
+      "applies_to_plans": ["Business", "Enterprise"],
+      "key_terms": {
+        "commitment_pct": 99.5,
+        "credits": [{"below_pct": 99.5, "credit_pct": 5}, {"below_pct": 99.0, "credit_pct": 10}],
+        "claim_process": "automatic"
+      },
+      "references": [], "ingested_at": "2025-12-20"
+    },
+    {
+      "document_id": "SLA-002", "path": "policies/service_sla_v2.md", "type": "policy",
+      "title": "Service Level Agreement v2", "date": "2026-07-01",
+      "policy_family": "service_sla", "version": 2, "status": "superseded",
+      "valid_from": "2026-07-01", "valid_to": "2026-09-30", "supersedes": "SLA-001", "superseded_by": "SLA-003",
+      "applies_to_plans": ["Business", "Enterprise"],
+      "key_terms": {
+        "commitment_pct": 99.9,
+        "credits": [{"below_pct": 99.9, "credit_pct": 10}, {"below_pct": 99.5, "credit_pct": 20}],
+        "claim_process": "automatic"
+      },
+      "references": ["SLA-001"], "ingested_at": "2026-06-20"
+    },
+    {
+      "document_id": "SLA-003", "path": "policies/service_sla_v3.md", "type": "policy",
+      "title": "Service Level Agreement v3", "date": "2026-10-01",
+      "policy_family": "service_sla", "version": 3, "status": "active",
+      "valid_from": "2026-10-01", "valid_to": null, "supersedes": "SLA-002",
+      "applies_to_plans": ["Business", "Enterprise"],
+      "key_terms": {
+        "commitment_pct": 99.9,
+        "credits": [{"below_pct": 99.9, "credit_pct": 15}, {"below_pct": 99.5, "credit_pct": 25}],
+        "claim_process": "request_within_30_days_after_month_end"
+      },
+      "references": ["SLA-002"], "ingested_at": "2026-09-28"
+    },
+    {
+      "document_id": "DRF-001", "path": "policies/service_sla_v3_draft.md", "type": "policy_draft",
+      "title": "Draft SLA v3 proposal (not adopted)", "date": "2026-09-10",
+      "policy_family": "service_sla", "version": null, "status": "draft",
+      "valid_from": null, "valid_to": null,
+      "references": [], "ingested_at": "2026-09-10"
+    },
+    {
+      "document_id": "REF-001", "path": "policies/refund_policy_v1.md", "type": "policy",
+      "title": "Refund Policy v1", "date": "2026-01-01",
+      "policy_family": "refund_policy", "version": 1, "status": "superseded",
+      "valid_from": "2026-01-01", "valid_to": "2026-08-31", "superseded_by": "REF-002",
+      "key_terms": {
+        "monthly_refund": "full refund of first payment within 30 days",
+        "annual_refund": "non-refundable"
+      },
+      "references": [], "ingested_at": "2025-12-20"
+    },
+    {
+      "document_id": "REF-002", "path": "policies/refund_policy_v2.md", "type": "policy",
+      "title": "Refund Policy v2", "date": "2026-09-01",
+      "policy_family": "refund_policy", "version": 2, "status": "active",
+      "valid_from": "2026-09-01", "valid_to": null, "supersedes": "REF-001",
+      "key_terms": {
+        "monthly_refund": "full refund of first payment within 30 days",
+        "annual_refund": "prorated refund if cancelled within first 90 days"
+      },
+      "references": ["REF-001"], "ingested_at": "2026-08-25"
+    },
+    {
+      "document_id": "SEC-001", "path": "policies/security_policy.md", "type": "policy",
+      "title": "Information Security Policy", "date": "2026-01-01",
+      "policy_family": "security_policy", "version": 1, "status": "active",
+      "valid_from": "2026-01-01", "valid_to": null,
+      "key_terms": {"incident_notification_hours": 72, "post_termination_retention_days": 90},
+      "references": [], "ingested_at": "2025-12-20"
+    },
+    {
+      "document_id": "SUP-001", "path": "policies/support_policy.md", "type": "policy",
+      "title": "Customer Support Policy", "date": "2026-01-01",
+      "policy_family": "support_policy", "version": 1, "status": "active",
+      "valid_from": "2026-01-01", "valid_to": null,
+      "key_terms": {"starter_sla_credits": "excluded"},
+      "references": [], "ingested_at": "2025-12-20"
+    },
+
+    {
+      "document_id": "CTR-001", "path": "contracts/acme_corp_contract.md", "type": "contract",
+      "title": "Master Subscription Agreement — Acme Corp", "date": "2026-03-01",
+      "customer_ids": ["CUS-001"], "plan": "Enterprise", "monthly_fee_usd": 12000,
+      "valid_from": "2026-03-01", "valid_to": "2028-02-29",
+      "pinned_policies": {}, "exceptions": [],
+      "references": ["CUS-001"], "ingested_at": "2026-02-21"
+    },
+    {
+      "document_id": "CTR-002", "path": "contracts/acme_logistics_contract.md", "type": "contract",
+      "title": "Subscription Agreement — Acme Logistics", "date": "2025-12-15",
+      "customer_ids": ["CUS-002"], "plan": "Business", "monthly_fee_usd": 3500,
+      "valid_from": "2025-12-15", "valid_to": "2026-12-14",
+      "pinned_policies": {"service_sla": {"document_id": "SLA-001", "until": "2026-12-14"}},
+      "exceptions": [],
+      "references": ["CUS-002", "SLA-001"], "ingested_at": "2025-12-11"
+    },
+    {
+      "document_id": "CTR-003", "path": "contracts/beta_ltd_contract.md", "type": "contract",
+      "title": "Subscription Agreement — Beta Ltd", "date": "2026-05-01",
+      "customer_ids": ["CUS-003"], "plan": "Business", "monthly_fee_usd": 4000,
+      "valid_from": "2026-05-01", "valid_to": "2027-04-30",
+      "pinned_policies": {}, "exceptions": [],
+      "references": ["CUS-003"], "ingested_at": "2026-04-25"
+    },
+    {
+      "document_id": "CTR-004", "path": "contracts/corvid_health_contract.md", "type": "contract",
+      "title": "Master Subscription Agreement — Corvid Health", "date": "2026-02-01",
+      "customer_ids": ["CUS-004"], "plan": "Enterprise", "monthly_fee_usd": 18000,
+      "valid_from": "2026-02-01", "valid_to": "2029-01-31",
+      "pinned_policies": {},
+      "exceptions": [
+        {"policy_family": "service_sla", "rule": "flat 20% credit for any month below 99.9%",
+         "key_terms": {"credits": [{"below_pct": 99.9, "credit_pct": 20}]}},
+        {"policy_family": "security_policy", "rule": "incident notification within 24 hours",
+         "key_terms": {"incident_notification_hours": 24}}
+      ],
+      "references": ["CUS-004", "SEC-001"], "ingested_at": "2026-01-23"
+    },
+    {
+      "document_id": "CTR-005", "path": "contracts/delta_freight_contract.md", "type": "contract",
+      "title": "Subscription Agreement — Delta Freight", "date": "2026-06-01",
+      "customer_ids": ["CUS-005"], "plan": "Starter", "monthly_fee_usd": 400,
+      "valid_from": "2026-06-01", "valid_to": null,
+      "pinned_policies": {}, "exceptions": [],
+      "references": ["CUS-005", "SUP-001"], "ingested_at": "2026-05-29"
+    },
+
+    {
+      "document_id": "INC-011", "path": "tickets/INC-011.json", "type": "ticket",
+      "title": "Regional network outage in eu-west", "date": "2026-04-18", "occurred_at": "2026-04-18",
+      "customer_ids": ["CUS-002"], "references": ["CUS-002", "CTR-002"], "ingested_at": "2026-04-18"
+    },
+    {
+      "document_id": "INC-012", "path": "tickets/INC-012.json", "type": "ticket",
+      "title": "Scheduled jobs not running", "date": "2026-06-17", "occurred_at": "2026-06-17",
+      "customer_ids": ["CUS-005"], "references": ["CUS-005", "CTR-005"], "ingested_at": "2026-06-17"
+    },
+    {
+      "document_id": "INC-013", "path": "tickets/INC-013.json", "type": "ticket",
+      "title": "Storage latency degradation", "date": "2026-07-22", "occurred_at": "2026-07-22",
+      "customer_ids": ["CUS-004"], "references": ["CUS-004", "CTR-004"], "ingested_at": "2026-07-22"
+    },
+    {
+      "document_id": "INC-014", "path": "tickets/INC-014.json", "type": "ticket",
+      "title": "Elevated 5xx API error rates", "date": "2026-08-21", "occurred_at": "2026-08-21",
+      "customer_ids": ["CUS-001"], "references": ["CUS-001", "CTR-001"], "ingested_at": "2026-08-21"
+    },
+    {
+      "document_id": "INC-015", "path": "tickets/INC-015.json", "type": "ticket",
+      "title": "Webhook delivery delays", "date": "2026-09-03", "occurred_at": "2026-09-03",
+      "customer_ids": ["CUS-002"], "references": ["CUS-002", "CTR-002"], "ingested_at": "2026-09-03"
+    },
+    {
+      "document_id": "INC-016", "path": "tickets/INC-016.json", "type": "ticket",
+      "title": "Full API outage after failed deployment", "date": "2026-10-12", "occurred_at": "2026-10-12",
+      "customer_ids": ["CUS-001"], "references": ["CUS-001", "CTR-001"], "ingested_at": "2026-10-12"
+    },
+    {
+      "document_id": "INC-017", "path": "tickets/INC-017.json", "type": "ticket",
+      "title": "Dashboard unavailable", "date": "2026-10-28", "occurred_at": "2026-10-28",
+      "customer_ids": ["CUS-006"], "references": ["CUS-006"], "ingested_at": "2026-10-28"
+    },
+    {
+      "document_id": "INC-018", "path": "tickets/INC-018.json", "type": "ticket",
+      "title": "Status of the Salesforce connector", "date": "2026-09-15", "occurred_at": "2026-09-15",
+      "customer_ids": ["CUS-003"], "references": ["CUS-003", "CTR-003", "MTG-003"], "ingested_at": "2026-09-15"
+    },
+
+    {
+      "document_id": "CUS-001", "path": "crm/acme_corp.json", "type": "crm",
+      "title": "CRM — Acme Corp", "date": "2026-03-01",
+      "customer_ids": ["CUS-001"], "references": ["CTR-001"], "ingested_at": "2026-03-01"
+    },
+    {
+      "document_id": "CUS-002", "path": "crm/acme_logistics.json", "type": "crm",
+      "title": "CRM — Acme Logistics", "date": "2025-12-15",
+      "customer_ids": ["CUS-002"], "references": ["CTR-002"], "ingested_at": "2025-12-15"
+    },
+    {
+      "document_id": "CUS-003", "path": "crm/beta_ltd.json", "type": "crm",
+      "title": "CRM — Beta Ltd", "date": "2026-05-01",
+      "customer_ids": ["CUS-003"], "references": ["CTR-003"], "ingested_at": "2026-05-01"
+    },
+    {
+      "document_id": "CUS-004", "path": "crm/corvid_health.json", "type": "crm",
+      "title": "CRM — Corvid Health", "date": "2026-02-01",
+      "customer_ids": ["CUS-004"], "references": ["CTR-004"], "ingested_at": "2026-02-01"
+    },
+    {
+      "document_id": "CUS-005", "path": "crm/delta_freight.json", "type": "crm",
+      "title": "CRM — Delta Freight", "date": "2026-06-01",
+      "customer_ids": ["CUS-005"], "references": ["CTR-005"], "ingested_at": "2026-06-01"
+    },
+    {
+      "document_id": "CUS-006", "path": "crm/everfield_retail.json", "type": "crm",
+      "title": "CRM — Everfield Retail", "date": "2026-09-15",
+      "customer_ids": ["CUS-006"], "references": [], "ingested_at": "2026-09-15"
+    },
+
+    {
+      "document_id": "MTG-001", "path": "conversations/meeting_2026-06-10_pricing-policy.md", "type": "meeting",
+      "title": "Pricing & Policy meeting", "date": "2026-06-10",
+      "customer_ids": ["CUS-002"], "references": ["SLA-002", "SLA-001", "CTR-002"], "ingested_at": "2026-06-11"
+    },
+    {
+      "document_id": "MTG-006", "path": "conversations/meeting_2026-07-30_security-review.md", "type": "meeting",
+      "title": "Quarterly Security Review", "date": "2026-07-30",
+      "customer_ids": ["CUS-004"], "references": ["SEC-001", "CTR-004"], "ingested_at": "2026-07-31"
+    },
+    {
+      "document_id": "MTG-002", "path": "conversations/meeting_2026-08-25_postmortem-inc-014.md", "type": "meeting",
+      "title": "Postmortem INC-014", "date": "2026-08-25",
+      "customer_ids": ["CUS-001"], "references": ["INC-014", "ENG-001"], "ingested_at": "2026-08-26"
+    },
+    {
+      "document_id": "MTG-003", "path": "conversations/meeting_2026-09-02_product-planning.md", "type": "meeting",
+      "title": "Product Planning (Q4)", "date": "2026-09-02",
+      "customer_ids": ["CUS-003"], "references": ["INC-014", "CUS-003", "CTR-003"], "ingested_at": "2026-09-03"
+    },
+    {
+      "document_id": "MTG-004", "path": "conversations/meeting_2026-09-20_leadership.md", "type": "meeting",
+      "title": "Leadership meeting", "date": "2026-09-20",
+      "customer_ids": [], "references": ["DRF-001", "SLA-003"], "ingested_at": "2026-09-21"
+    },
+    {
+      "document_id": "MTG-005", "path": "conversations/meeting_2026-10-05_customer-success.md", "type": "meeting",
+      "title": "Customer Success Sync", "date": "2026-10-05",
+      "customer_ids": ["CUS-004", "CUS-006", "CUS-002", "CUS-003"], "references": ["CUS-006", "SLA-003"], "ingested_at": "2026-10-06"
+    },
+
+    {
+      "document_id": "MKT-001", "path": "other/reliability_commitment.md", "type": "marketing",
+      "title": "Our Reliability Commitment", "date": "2026-03-15",
+      "references": [], "ingested_at": "2026-03-15"
+    },
+    {
+      "document_id": "ENG-001", "path": "other/runbook_postgres_connection_pool.md", "type": "runbook",
+      "title": "Runbook — Tuning Postgres connection pools", "date": "2026-08-28",
+      "references": ["INC-014"], "ingested_at": "2026-08-28"
+    }
+  ]
+}

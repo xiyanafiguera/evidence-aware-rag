@@ -1,0 +1,12 @@
+{
+  "customer_id": "CUS-001",
+  "name": "Acme Corp",
+  "industry": "Manufacturing",
+  "plan": "Enterprise",
+  "monthly_fee_usd": 12000,
+  "contract_id": "CTR-001",
+  "account_manager": "Priya Raman",
+  "status": "active",
+  "customer_since": "2026-03-01",
+  "notes": "Large manufacturing group. Heavy API usage from their ERP integration. Two Sev-1 incidents in 2026 (August, October); relationship sensitive."
+}
