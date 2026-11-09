@@ -16,10 +16,14 @@ from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = ROOT / "data"
-EVAL_DIR = ROOT / "eval"
-NOT_INDEXED = {"WORLD.md", "manifest.json", ".gitkeep"}
+from pydantic import TypeAdapter, ValidationError
+
+from evidence_aware_rag.config import Settings
+from evidence_aware_rag.models import DomainRules, Manifest, Question
+
+DATA_DIR = Settings().data_dir
+EVAL_DIR = Settings().eval_dir
+NOT_INDEXED = {"WORLD.md", "manifest.json", "domain_rules.json", ".gitkeep", ".DS_Store"}
 DOC_ID_LINE = re.compile(r"^Document ID:\s*(\S+)", re.MULTILINE)
 
 
@@ -122,10 +126,40 @@ def validate_questions(known_ids: set[str]) -> list[str]:
     return errors
 
 
+def validate_schemas() -> list[str]:
+    """Schema-level validation with the package's own pydantic models."""
+    errors: list[str] = []
+    checks = [
+        (DATA_DIR / "manifest.json", Manifest.model_validate_json),
+        (DATA_DIR / "domain_rules.json", DomainRules.model_validate_json),
+    ]
+    question_list = TypeAdapter(list[Question])
+    checks += [(path, question_list.validate_json) for path in sorted(EVAL_DIR.glob("questions_*.json"))]
+    for path, validate in checks:
+        try:
+            validate(path.read_text(encoding="utf-8"))
+        except ValidationError as exc:
+            errors.append(f"{path.name}: schema error\n{exc}")
+    return errors
+
+
+def validate_rules(docs: list[dict]) -> list[str]:
+    rules = json.loads((DATA_DIR / "domain_rules.json").read_text(encoding="utf-8"))
+    families = {d["policy_family"] for d in docs if d.get("policy_family")}
+    errors = [f"domain_rules: unknown policy family {f}" for f in rules["policy_families"] if f not in families]
+    errors += [f"domain_rules: no clause rules for family {f}" for f in families if f not in rules["policy_families"]]
+    return errors
+
+
 def main() -> int:
+    errors = validate_schemas()
+    if errors:
+        print("\n".join(errors))
+        return 1
     manifest = json.loads((DATA_DIR / "manifest.json").read_text(encoding="utf-8"))
     docs = manifest["documents"]
     errors = validate_manifest(docs)
+    errors += validate_rules(docs)
     errors += validate_questions({d["document_id"] for d in docs})
 
     if errors:

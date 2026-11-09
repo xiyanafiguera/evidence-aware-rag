@@ -1,0 +1,36 @@
+{
+  "policy_families": {
+    "service_sla": {
+      "clauses": {
+        "credits": ["credit", "credits", "compensation", "compensated", "owed", "entitled", "availability", "uptime", "percent", "%"],
+        "claim_process": ["claim", "request", "deadline", "apply", "automatic", "automatically", "submit"],
+        "commitment_pct": ["commitment", "commit", "guarantee", "guaranteed", "target"]
+      }
+    },
+    "refund_policy": {
+      "clauses": {
+        "monthly_refund": ["monthly", "month", "money back", "refund", "refunded"],
+        "annual_refund": ["annual", "yearly", "year"]
+      }
+    },
+    "security_policy": {
+      "clauses": {
+        "incident_notification_hours": ["notify", "notified", "notification", "breach", "breaches", "security incident"],
+        "post_termination_retention_days": ["retain", "retention", "keep", "kept", "delete", "deleted"]
+      }
+    },
+    "support_policy": {
+      "clauses": {
+        "starter_sla_credits": ["starter"]
+      }
+    }
+  },
+  "intents": {
+    "compensation": {
+      "keywords": ["compensation", "compensated", "credit", "credits", "owed", "entitled", "reimburse"],
+      "policy_family": "service_sla",
+      "requires": ["incident", "contract", "applicable_policy"],
+      "expansion_priority": ["contract", "ticket", "policy", "crm", "meeting", "runbook", "marketing", "policy_draft"]
+    }
+  }
+}
