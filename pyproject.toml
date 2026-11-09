@@ -1,0 +1,26 @@
+[project]
+name = "evidence-aware-rag"
+version = "0.1.0"
+description = "Evidence-aware knowledge retrieval for AI agents: hybrid search, temporal versioning, relation expansion, MCP and evaluation"
+readme = "README.md"
+authors = [
+    { name = "Xiyana Figuera", email = "112554275+xiyanafiguera@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "faiss-cpu>=1.15.1",
+    "mcp[cli]>=2.3.0",
+    "pydantic>=2.14.3",
+    "python-dateutil>=4.0.0",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=6.2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

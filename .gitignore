@@ -1,0 +1,23 @@
+# Personal agent-assisted dev workflow (not part of the product)
+.claude/
+ClaudeCode_Session/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Generated artifacts (rebuilt by scripts/build_index.py)
+index/
+
+# Secrets
+.env
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
